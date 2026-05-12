@@ -8,14 +8,21 @@ export function limparInput() {
   document.querySelector("#input-tarefa").value = "";
 }
 
-// função para adicionar uma tarefa á lista de tarefas no DOM
-export function adicionarTarefaNaLista(texto) {
+//função para renderizar a lista de tarefas no DOM
+export function renderizarTarefas(tarefas) {
   const lista = document.querySelector("#lista-tarefas");
+  lista.innerHTML = "";
 
-  const li = document.createElement("li");
-  li.textContent = texto;
+  tarefas.forEach((tarefa) => {
+    const li = document.createElement("li");
+    li.textContent = tarefa.texto;
 
-  lista.appendChild(li);
+    if (tarefa.concluida) {
+      li.style.textDecoration = "line-through";
+    }
+
+    lista.appendChild(li);
+  });
 }
 
 //função para exibir mensagens de validaçao ou sucesso para o usuário
@@ -29,5 +36,5 @@ export function exibirMensagem(mensagem, tipo) {
   }
 
   msg.textContent = mensagem;
-  msg.style.color = tipo === "error" ? "red" : "green";
+  msg.style.color = tipo === "erro" ? "red" : "green";
 }
