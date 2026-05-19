@@ -1,24 +1,22 @@
-:root{
-  --bg-main:#f5f5f7;
-  --bg-card:#ffffff;
-  --text-primary:#1d1d1f;
-  --text-secondary:#6e6e73;
---border-light:#e5e5ea;
+:root {
+  --bg-main: #f5f5f7;
+  --bg-card: #ffffff;
+  --text-primary: #1d1d1f;
+  --text-secondary: #6e6e73;
+  --border-light: #e5e5ea;
 
---accent:#0071e3;
---accent-hover:#005bb5;
+  --accent: #0071e3;
+  --accent-hover: #005bb5;
 
---success:#34c759;
---error:#ff3b30;
+  --success: #34c759;
+  --error: #ff3b30;
 }
 
 html {
   font: 89.375%;
 }
 
-
 * {
-
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -29,12 +27,12 @@ BASE
 =================*/
 body {
   background: var(--bg-main);
-color: var(--text-primary);
-min-height: 100vh;
-display: flex;
-justify-content: center;
-padding: 2.5rem 1rem;
-  }
+  color: var(--text-primary);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  padding: 2.5rem 1rem;
+}
 /*===============
 CONTAINER PRINCIPAL
 =================*/
@@ -44,7 +42,7 @@ CONTAINER PRINCIPAL
   background: var(--bg-card);
   border-radius: 1rem;
   padding: 2rem;
-  box-shadow: 0 1.5rem 2.5rem rgba(0,0,0,0.06);
+  box-shadow: 0 1.5rem 2.5rem rgba(0, 0, 0, 0.06);
 }
 /*===============
 TITULO
@@ -68,10 +66,69 @@ input[type="text"] {
   padding: 0.75rem 0.875rem;
   border-radius: 0.625rem;
   border: 0.0625rem solid var(--border-light);
-font-size: 1rem;
+  font-size: 1rem;
 }
 
 input[type="text"]:focus {
   outline: none;
   border-color: var(--accent);
+}
+/*===============
+BOTAO
+=================*/
+button {
+  background-color: var(--accent);
+  color: var(--bg-card);
+  border: none;
+  padding: 0.75rem 1.25rem;
+  border-radius: 0.625rem;
+  font-size: 0.95rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+button:hover {
+  background-color: var(--accent-hover);
+}
+
+/*===============
+LISTA DE TAREFAS
+=================*/
+ul {
+  list-style: none;
+  margin-top: 1rem;
+}
+
+li {
+  padding: 0.875rem;
+  border-bottom: 0.0625rem solid var(--border-light);
+}
+
+li :last-child {
+  border-bottom: none;
+}
+
+/*===============
+LISTA DE TAREFAS
+=================*/
+#mensagem {
+  margin-top: 0.75rem;
+  font-size: 0, 9rem;
+}
+
+#mensagem.erro {
+  color: var(--error);
+}
+
+#mensagem.sucesso {
+  color: var(--success);
+}
+
+/*===============
+DICA EXTERNA
+=================*/
+#dica {
+  margin-top: 1.5rem;
+  font-size: 0.9rem;
+  color: var(--text-secondary);
 }
