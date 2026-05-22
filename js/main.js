@@ -16,6 +16,8 @@ import { buscarDica } from "./api.js";
 //selecionar o formulario para adicionar um evento de submit
 const form = document.querySelector("#form-tarefa");
 
+let timeoutMensagem;
+
 //função para iniciar a aplicação e buscar a dica e exibindo-a
 async function iniciarAplicacao() {
   const dica = await buscarDica();
@@ -37,6 +39,13 @@ form.addEventListener("submit", function (event) {
   adicionarTarefa(texto);
   renderizarTarefas(obterTarefas());
   exibirMensagem("tarefa adicionada com sucesso!", "sucesso");
+  clearTimeout(timeoutMensagem);
+  timeoutMensagem = setTimeout(() => {
+    const mensagem = document.querySelector("#mensagem");
+    if (mensagem) {
+      mensagem.style.display = "none";
+    }
+  }, 3000);
   limparInput();
 });
 
